@@ -1,7 +1,7 @@
 # Shell-Scripte
 Nützliche kleine Helfer für den Linux-Fotografen
 
-_*** for english description see README_en ***_
+_*** for english description see [README_en](README_en.md) ***_
 
 __Vorbemerkungen:__ Alle hier vorgestellten Scripte müssen in ein Verzeichnis kopiert werden, das in der Variable `$PATH` gelistet ist. Sodann muß das Script ausführbar gemacht werden für den aktuellen Benutzer.
 
@@ -42,6 +42,7 @@ Das Script stellt folgende Funktionen zur Verfügung:
 	- Originaldaten mit unveränderten Tags im Textformat
 	- In deutsche Sprache übersetzte Metadaten im HTML-Format
 1. Export der eingebetteten Vorschau-Bilder im jpg-Format aus RAW-Dateien
+1. Metadaten reduzieren und Copyright-Hinweise hinzufügen
 1. Import von Metadaten in Bilddateien aus Textfiles
 1. Übertragung von Metadaten zwischen Bilddateien
 

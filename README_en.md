@@ -1,7 +1,7 @@
 # Shell scripts
 Useful little helpers for the Linux photographer
 
-_*** Deutsche Beschreibung findet sich in README ***_
+_*** Deutsche Beschreibung findet sich in [README](README.md) ***_
 
 __Preliminary remarks:__ All scripts presented here must be copied to a directory listed in the `$PATH` variable. Then the script must be made executable for the current user.
 
@@ -42,6 +42,7 @@ The script provides the following functions:
     - Original data with unchanged tags in text format
     - Metadata translated into German in HTML format
 1. export of embedded preview images in jpg format from RAW files
+1. Reduce metadata and add copyright notices
 1. import metadata into image files from text files
 1. transfer metadata between image files
 
