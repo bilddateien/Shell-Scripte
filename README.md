@@ -11,7 +11,7 @@ Zweck: Dateikonsistenz im Bildarchiv sicherstellen
 ### Hintergrund
 Nutzt der Fotograf RAW-Dateien in der Kamera, dann sind diese Dateien bei der weiteren Verarbeitung im RAW-Editor Read-only.     
 Jegliche Einstellungen werden entweder in der internen Datenbank des RAW-Editors und/oder in Sidecar-Files (.xmp) abgespeichert. Es ist daher einfach festzustellen, ob die RAW-Dateien eines (umfangreichen) Bildarchivs noch alle intakt sind, und zwar anhand von Prüfsummen für die RAW-Bilddateien. Das vereinfacht auch die notwendigen Backups und reduziert das Speichervolumen.    
-Mehr dazu: https://www.bilddateien.de/fotografie/bildbearbeitung/foto-backup.html
+Mehr dazu: [Backup von Fotos: Datensicherung und -verifikation im digitalen Bildarchiv](https://www.bilddateien.de/fotografie/bildbearbeitung/foto-backup.html)
 
 ### Das Script
 Das Script kennt zwei Modi:
