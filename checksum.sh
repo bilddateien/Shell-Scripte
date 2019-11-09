@@ -3,7 +3,7 @@
 #Dateikonsistenz im Bildarchiv sicherstellen
 #erstellt von: Bernhard Albicker, www.bilddateien.de 
 
-echo -e "\n*** Prüfung der Dateikonsistenz im Bildarchiv ***\n"        #-e wegen der Zeilenumbrüche
+echo -e "\n*** Prüfung der Dateikonsistenz im Bildarchiv ***\n"		#-e wegen der Zeilenumbrüche
 echo "Erzeugen von Prüfsummen im aktuellen Verzeichnis? (c)"
 echo "Überprüfen des kompletten Archivs auf Konsistenz? (t)"
 read -p "Auswahl: " mode
@@ -15,18 +15,20 @@ verzname="$(basename $startverz)"  #Name des letzten Verzeichnisses im Pfad des 
 echo $verzname
 
 if [ $mode == "c" ]; then
+    shopt -s nocaseglob 	#filenames case-insensitive: Erweiterungen unabh. von Groß/Kleinschreibung testen
     #Checksummen CRC32, SHA1 und MD5 für RAW-Files in einem gegebenen Verzeichnis erzeugen
     #Die Prüfsummendatei trägt den Namen des Verzeichnisses
     echo -e "\nPrüfsummenfiles für das Verzeichnis\n $verzname \nwerden erzeugt\n"
-    for file in *.{nef,NEF,orf,ORF,rw2,RW2,pef,PEF,dng,DNG,tif,TIF,jpg,JPG,png,PNG} 
+    for file in *.{nef,orf,rw2,pef,dng,tif,jpg,png} 
     do
         # do something on "$file"
         echo $file
         md5sum $file >> $verzname.md5 
         sha1sum --tag $file >> $verzname.sha1 
     done
-    cfv -C -f$verzname.sfv *.{nef,NEF,orf,ORF,rw2,RW2,pef,PEF,dng,DNG,tif,TIF,jpg,JPG,png,PNG} 
+    cfv -C -f$verzname.sfv *.{nef,orf,rw2,pef,dng,tif,jpg,png}  
 
+    shopt -u nocaseglob
     echo "erledigt ..."
 
 elif [ $mode == "t" ]; then

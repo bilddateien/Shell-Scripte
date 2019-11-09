@@ -1,7 +1,7 @@
 # Shell scripts
 Useful little helpers for the Linux photographer
 
-_*** Deutsche Beschreibung findet sich in README ***_
+_*** Deutsche Beschreibung findet sich in [README](README.md) ***_
 
 __Preliminary remarks:__ All scripts presented here must be copied to a directory listed in the `$PATH` variable. Then the script must be made executable for the current user.
 
