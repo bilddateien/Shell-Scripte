@@ -58,6 +58,7 @@ Die Option (e) stellt verschiedene Funktionen zum Auslesen der eingebetteten JPG
 - (g) untersucht alle eingebetteten Bilder und gibt nur jeweils dasjenige mit dem größten Bildformat heraus.    
 Für die Benutzung der Option "größtes Bild" muß im Benutzerverzeichnis eine Datei `.ExifTool_config` erstellt werden und [dieser Inhalt](https://owl.phy.queensu.ca/~phil/exiftool/config.html) hineinkopiert werden.
 - (t), (p), (j) und (o) lesen _nur_ die jeweils genannten Tags aus. Nicht jedes Kamera-RAW-Format nutzt jedes dieser Tags, es gibt hier Unterschiede sowohl von Hersteller zu Hersteller als auch unter verschiedenen Kameramodellen (teilweise auch Firmwareständen) des selben Herstellers.
+- (e) kopiert alle Metadaten aus den RAW-Dateien in die zuvor extrahierten (und im Unterordner `/jpg` befindlichen) Dateien.
 
 #### Metadaten reduzieren und Copyright-Hinweise hinzufügen
 Die Option (m) verändert die Originalbilder. Es werden die Metadaten der im aktiven Verzeichnis liegenden Bilddateien weitgehend gelöscht, lediglich einige wenige Kamera- und Aufnahme-Kennwerte (Hersteller, Typ der Kamera, Objektiv, Blende, Belichtungszeit, Belichtungskorrektur, ISO und Brennweite) bleiben erhalten.     

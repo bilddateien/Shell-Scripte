@@ -4,9 +4,9 @@
 #erstellt von: Bernhard Albicker, www.bilddateien.de 
 
 #Copyright-Vermerke für Bilder hier eintragen:
-Fotograf="Name des Fotografen"
-Herausgeber="Bildherausgeber"
-Rechte="Lizensierungshinweise"
+Fotograf="Bernhard Albicker"
+Herausgeber="https://www.bilddateien.de"
+Rechte="(c) alle Rechte vorbehalten"
 
 mode=""
 while [ mode != "q" ]
@@ -27,14 +27,15 @@ do
     # https://owl.phy.queensu.ca/~phil/exiftool/exiftool_pod.html#Tag-operations
 
     if [ $mode == "e" ]; then
-        echo -e "\nWelcher Typ des eingebetteten JPG soll ausgelesen werden?\n"		#-e wegen der Zeilenumbrüche
-        echo "alle            (a)"
-        echo "größte Vorschau (g)"
-        echo "Thumbnail       (t)"
-        echo "Preview         (p)"
-        echo "JPG from RAW    (j)"
-        echo "Other           (o)"
-        echo "* abbrechen *   (b)"
+        echo -e "\nWelcher Typ des eingebetteten JPG soll ausgelesen werden?\n"    #-e wegen der Zeilenumbrüche
+        echo "alle               (a)"
+        echo "größte Vorschau   (g)"
+        echo "Thumbnail          (t)"
+        echo "Preview            (p)"
+        echo "JPG from RAW       (j)"
+        echo "Other              (o)"
+        echo "* EXIF kopieren *  (e)"
+        echo "* abbrechen *      (b)"
         read -p "Auswahl: " typ
         echo -e "\n"
 	
@@ -69,13 +70,25 @@ do
             echo -e "erledigt ...\n"
         elif [ $typ == "j" ]; then
             exiftool -b -JpgFromRaw -w jpg/%f_JpgFromRaw%-c.jpg $startverz
+            echo -e "jpgs extrahiert ...\n"
             echo -e "erledigt ...\n"
         elif [ $typ == "o" ]; then
             exiftool -b -OtherImage -w jpg/%f_OtherImage%-c.jpg $startverz
             echo -e "erledigt ...\n"
         elif [ $typ == "b" ]; then
             echo -e "\n-- beendet, bitte neue Auswahl treffen --\n"
-        else
+        elif [ $typ == "e" ]; then
+        # Exif-Daten in extrahierte jpgs übertragen
+        # ~$ exiftool -TagsFromFile /pfad/20200930_N854555.nef "-all:all>all:all" /pfad/20200930_N854555_JpgFromRaw.jpg
+            cd $startverz        
+            for file in *    #.{nef,rw2,orf}
+                do
+                    echo $file
+                    exiftool -overwrite_original -TagsFromFile $startverz/$file "-all:all>all:all" $startverz/jpg/${file%.*}_*.jpg
+                    #exiftool -overwrite_original -TagsFromFile $startverz/$file -all:all $startverz/jpg/${file%.*}_*.jpg
+                done
+            echo -e "erledigt ...\n"
+    else
             #Benutzer hat sich vertippt - es wird nichts ausgeführt
             echo -e "\nFalsche Auswahl, bitte gültige Option wählen\n"
         fi
@@ -83,7 +96,7 @@ do
     elif [ $mode == "t" ]; then
         cd $startverz
         #xmp-Dateien ausschließen
-        		
+                
         if [ ! -d $meta ]; then     #Unterverzeichnis erstellen, falls nicht vorhanden
             mkdir meta
         fi
@@ -121,3 +134,5 @@ do
 
     fi
 done
+
+

@@ -58,6 +58,7 @@ Option (e) provides various functions for reading the embedded JPG preview image
 - (g) examines all embedded images and only outputs the one with the largest image format.    
 To use the option "largest image" you have to create a file `.ExifTool_config` in the user directory and copy [this content](https://owl.phy.queensu.ca/~phil/exiftool/config.html) into it.
 - (t), (p), (j) and (o) _only_ read the tags mentioned. Not every camera RAW format uses each of these tags, there are differences both from manufacturer to manufacturer and between different camera models (partly also firmware versions) of the same manufacturer.
+- (e) copies all metadata from the RAW files to the previously extracted (and located in the `/jpg` subfolder) files.
 
 #### Reduce metadata and add copyright notices
 The option (m) changes the original images. The metadata of the image files in the active directory are largely deleted, only a few camera and recording parameters (manufacturer, camera type, lens, aperture, exposure time, exposure correction, ISO and focal length) are retained.     
